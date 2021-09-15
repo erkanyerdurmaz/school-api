@@ -4,6 +4,11 @@
     <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
       <option name="url" value="https://maven.app.gittigidiyor.net/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>
@@ -29,12 +34,27 @@
     <remote-repository>
       <option name="id" value="releases" />
       <option name="name" value="Release Repository" />
+      <option name="url" value="https://maven.app.gittigidiyor.net/nexus/content/repositories/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="snapshots" />
+      <option name="name" value="Snapshot Repository" />
+      <option name="url" value="https://maven.app.gittigidiyor.net/nexus/content/repositories/snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="releases" />
+      <option name="name" value="Release Repository" />
       <option name="url" value="https://maven.app.gittigidiyor.net/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="public" />
       <option name="name" value="Public Repository" />
       <option name="url" value="https://maven.app.gittigidiyor.net/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="thirdparty" />
+      <option name="name" value="Thirdparty Repository" />
+      <option name="url" value="https://maven.app.gittigidiyor.net/nexus/content/repositories/thirdparty" />
     </remote-repository>
   </component>
 </project>

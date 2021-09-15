@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentRepository extends JpaRepository<Student,Long> {
 
-
     Optional<Student> findById(Long id);
 
     Student save(Student student);

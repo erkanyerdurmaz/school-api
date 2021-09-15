@@ -1,8 +1,13 @@
 package com.example.schoolapi.controller;
 
 import com.example.schoolapi.domain.Student;
+import com.example.schoolapi.dto.StudentConverter;
+import com.example.schoolapi.dto.request.StudentRequest;
+import com.example.schoolapi.dto.response.StudentResponse;
 import com.example.schoolapi.service.StudentService;
 import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/student/")
-public class StudentController {
-    private final StudentService studentService;
+import javax.validation.Valid;
 
+@RestController
+@RequestMapping("/student")
+public class StudentController {
+
+    private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -32,9 +39,9 @@ public class StudentController {
 
     }
     @PostMapping({"","/"})
-    public void saveStudent(@RequestBody Student student){
-        studentService.saveStudent(student);
-
+    public ResponseEntity<StudentResponse> saveStudent(@Valid @RequestBody StudentRequest studentRequest){
+        Student student = studentService.saveStudent(StudentConverter.convertToStudent(studentRequest));
+        return ResponseEntity.ok(StudentConverter.convertToStudentResponse(student));
     }
     @PutMapping("/{id}")
     public void updateStudentById(@RequestBody Student student, @PathVariable Long id){

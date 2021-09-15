@@ -1,12 +1,10 @@
 package com.example.schoolapi.domain;
 
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,17 +13,22 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long tc;
+    private String tc;
     private String firstname;
     private String lastname;
     private String mail;
     private String no;
     private Date birthday;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
 }
 
